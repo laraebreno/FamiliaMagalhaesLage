@@ -1,0 +1,833 @@
+/*Importanto Fonte*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;500;600&display=swap');
+
+@font-face {
+    font-family: 'FonteTitulo'; 
+    src: url('Romantically.otf') format('truetype'); 
+    font-weight: normal; /* Se necessário, defina o peso da fonte */
+    font-style: itálico; /* Se necessário, defina o estilo (normal, itálico) */
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+/*Definindo as cores do meu site*/
+
+:root{
+    --my-white: rgb(237, 237, 237);
+    --my-black: rgb(51, 51, 51);
+    --color-body: #d8d8d8;
+    --main-bg-color: #fff;
+    --bg-color: #fff;
+    --second-bg-color: #f7ede0;
+    --text-color: #675D50;
+    --second-text-color: #A9907E;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body{
+    background: var(--main-bg-color);
+    color: var(--text-color);
+}
+
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+img{
+    border-radius: 12px;
+}
+
+/* ----------MENU BAR---------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.header.sticky {
+    background-color: var(--color-body);
+    border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+}
+
+.header.sticky a {
+    color: var(--my-black);
+}
+
+.logo {
+    font-size: 2rem;
+    color: var(--my-black);
+    font-weight: 400;
+    cursor: default;
+    font-family: 'FonteTitulo', sans-serif;
+}
+
+#menu-icon{
+    display: block;
+    cursor: pointer;
+    color: var(--my-black);
+    font-size: 3.6rem;
+}
+
+.navbar{
+    position: absolute;
+    top:100%;
+    left:0;
+    width: 100%;
+    padding: 1rem 3%;
+    background: var(--color-body);
+    border-top: .1rem solid rgba(0,0,0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0, .2);
+    display: none;
+}
+
+.navbar.active{
+    display: block;
+}
+
+.navbar a{
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+    color: var(--my-black);
+}
+
+.navbar a:hover, .navbar a.active {
+    border-bottom: 1px solid var(--my-black);
+    color: var(--my-black);
+    font-weight: 400;
+}
+
+/* ----------HOME---------- */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--color-body);
+    background-image: url('imagens/capa-site.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: relative; 
+    padding-bottom: 40px; /* Ajuste para garantir espaço para o SVG */
+}
+
+/* Ajuste do SVG */
+.home svg {
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%; 
+    height: auto; 
+    z-index: 2;
+    max-width: 100%; 
+    display: block; 
+}
+
+/* Camada de sobreposição */
+.home::before {
+    content: "";
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.24); 
+    z-index: 1;
+}
+
+.home .conteudo {
+    position: relative; 
+    z-index: 2;
+}
+
+.home-conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center; 
+    height: 100%; 
+    padding-bottom: 20px; 
+}
+
+.home-conteudo h1 {
+    font-size: 6rem;
+    font-weight: 600;
+    color: var(--my-white);
+    line-height: 1.6;
+    font-family: 'FonteTitulo', sans-serif;
+    z-index: 3; 
+    position: relative;
+    padding-bottom: 80px;
+}
+
+.home-conteudo p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--my-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px; 
+    font-family: 'FonteTitulo', sans-serif;
+    z-index: 3; 
+    position: relative;
+}
+
+
+
+/*EDITANDO SVG DE TRANSIÇÃO*/
+.svg-header {
+    background-image: url(imagens/mountains.svg);
+    height: 7vw;
+    transform: scaleY(1) scaleX(-1);
+}
+
+.heading {
+    font-size: 2.5rem;
+    color: var(--my-black);
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    margin-bottom: 30px; 
+    text-align: center;
+}
+
+/* ----------Contagem Regressiva---------- */
+.sobre{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    gap: 1rem;
+    background: var(--color-body);
+}
+
+.contador {
+    text-align: center;
+    padding: 40px 50px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.tempo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.bloco-tempo {
+    background-color: var(--my-black); 
+    padding: 25px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    color: var(--my-white); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 180px;
+    flex: 1 1 150px;
+}
+
+.bloco-tempo:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+.bloco-tempo span {
+    font-size: 6rem; 
+    font-weight: bold;
+    color: var(--color-body); 
+    display: block;
+    margin-bottom: 10px;
+}
+
+.bloco-tempo div {
+    font-size: 1.2rem;
+    color: #ecf0f1; 
+}
+
+/* Estilo de transição suave para o título */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.heading {
+    animation: fadeIn 1.5s ease-in-out; 
+}
+
+/* ----------SÉRIES---------- */
+
+.series{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    gap: 5rem;
+    background: var(--color-body);
+    flex-flow:column nowrap ;
+}
+
+.series-conteudo{
+    margin: 0 15rem;
+}
+
+.series-conteudo h2{
+    text-align: center;
+    line-height: 3;
+}
+
+.series-conteudo p{
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin: 1rem 0 2rem ;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-family: "Montserrat", sans-serif;
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ----------TRAJES---------- */
+
+.trajes{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    gap: 5rem;
+    background: var(--color-body);
+    flex-flow:column nowrap ;
+}
+
+.trajes-conteudo{
+    margin: 0 15rem;
+}
+
+.trajes-conteudo h2{
+    text-align: center;
+    line-height: 3;
+}
+
+.trajes-conteudo p{
+    font-size: 2rem;
+    font-weight: 300;
+    margin: 1rem 0 2rem ;
+    color: var(--text-color);
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-family: "Montserrat", sans-serif;
+}
+
+.destaque {
+    font-weight: bold;
+    color: var(--my-black); 
+}
+
+.traje {
+    background-color: var(--my-black);
+    border-radius: 10px;
+    padding: 2rem;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quadro {
+    margin-bottom: 2rem;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--my-white) !important;
+}
+
+.titulo i {
+    font-size: 2.5rem;
+    color: var(--highlight-color);
+}
+
+.descricao {
+    font-size: 1.6rem;
+    color: var(--my-white) !important;
+    line-height: 1.6;
+}
+
+
+
+/* ----------PROGRAMAÇÃO DO EVENTO---------- */
+
+.programacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    gap: 5rem;
+    background: var(--color-body);
+    flex-flow:column nowrap ;
+}
+
+.programacao-conteudo{
+    margin: 0 15rem;
+}
+
+.programacao-conteudo h2{
+    text-align: center;
+    line-height: 3;
+}
+
+.programacao-conteudo p{
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin: 1rem 0 2rem ;
+    color: var(--text-color);
+    
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-family: "Montserrat", sans-serif;
+}
+
+::selection{
+    color: #fff;
+    background: #ff7979;
+  }
+  
+.wrapper{
+    width: 1080px;
+    margin: 50px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.wrapper .center-line{
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: #fff;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+}
+
+.wrapper .row{
+    display: flex;
+    padding-bottom: 70px;
+}
+
+.wrapper .row-1{
+    justify-content: flex-start;
+}
+
+.wrapper .row-2{
+    justify-content: flex-end;
+}
+
+.wrapper .row .programacao-item{
+    background: #fff;
+    border-radius: 5px;
+    width: calc(50% - 40px);
+    padding: 20px;
+    position: relative;
+}
+
+.wrapper .row .programacao-item::before{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    top: 28px;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+
+.row-1 .programacao-item::before{
+    right: -7px;
+}
+
+.row-2 .programacao-item::before{
+    left: -7px;
+}
+
+.row .programacao-item .icon,
+.center-line .scroll-icon{
+    position: absolute;
+    background: #f2f2f2;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50%;
+    color: var(--my-black);
+    font-size: 17px;
+    box-shadow: 0 0 0 4px #fff, inset 0 2px 0 rgba(0,0,0,0.08), 0 3px 0 4px rgba(0,0,0,0.05);
+}
+
+.center-line .scroll-icon{
+    bottom: 0px;
+    left: 50%;
+    font-size: 25px;
+    transform: translateX(-50%);
+}
+
+.row-1 .programacao-item .icon{
+    top: 15px;
+    right: -60px;
+}
+
+.row-2 .programacao-item .icon{
+    top: 15px;
+    left: -60px;
+}
+
+.row-2 .hours{
+    padding-left: 10px;
+}
+
+.row .programacao-item .details,
+.row .programacao-item .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row .programacao-item .details .title{
+    font-size: 22px;
+    font-weight: 600;
+}
+.row .programacao-item .details .hours{
+    font-size: 19px;
+    font-weight: 300;
+}
+
+.row .programacao-item p{
+    margin: 10px 0 17px 0;
+}
+
+/* ----------PRESENTES---------- */
+
+.presentes{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    gap: 5rem;
+    background: var(--color-body);
+    flex-flow:column nowrap ;
+}
+
+.presentes-conteudo{
+    margin: 0 15rem;
+}
+
+.presentes-conteudo div {
+    display: flex;                   
+    justify-content: center;         
+    align-items: center;      
+    gap: 1rem;                    
+    flex-wrap: wrap;             
+    margin-top: 20px;               
+}
+
+.presentes-conteudo h2{
+    text-align: center;
+    line-height: 3;
+}
+
+.presentes-conteudo p{
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin: 1rem 0 2rem ;
+    color: var(--text-color);
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    font-family: "Montserrat", sans-serif;
+}
+
+.btn-presentes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--my-black);
+    color: var(--my-white);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 30px;
+    white-space: nowrap;
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+    max-width: 80px; 
+    margin-bottom: 15px;
+    
+}
+
+.btn-presentes span {
+    display: inline-block;
+}
+
+.btn-presentes:hover {
+    background-color: #1f2629;
+    transform: scale(1.1); 
+}
+
+
+/* ----------FOOTER---------- */
+footer{
+    padding-top: 35px;
+    background: var(--color-body);
+    text-align: center;
+    height: 100px;
+}
+.footer-text p{
+    color: var(--text-color);
+    font-size: 1.6rem;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: var(--color-body);
+}
+
+.footer-icon a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    border-radius:.8rem ;
+    background: var(--my-black);
+    transition: .5s ease;
+}
+
+.footer-icon a i{
+    font-size: 2.4rem;
+    color: var(--my-white);
+}
+
+.footer-icon a:hover{
+    box-shadow: 0 0 1rem var(--text-color);
+}
+
+
+/*---------------------------------------BREAKPOINTS----------------------------------------*/
+
+@media (max-width: 1600px){
+    html{
+        font-size: 55%;
+    }
+
+   
+}
+
+@media (max-width: 991px){
+    .header{
+        padding: 2rem 3%;
+    }
+    section{
+        padding: 10rem 3% 2rem;
+    }
+    .footer{
+        padding: 2rem 3%;
+    }
+    .tempo {
+        flex-wrap: wrap; 
+        gap: 20px;
+        justify-content: space-between; 
+    }
+
+    /* Dividir os blocos em duas colunas em telas pequenas */
+    .bloco-tempo {
+        width: 50%; /* Cada bloco ocupa metade da largura disponível */
+        max-width: 300px; /* Limite a largura máxima para que não fiquem grandes demais */
+    }
+    /* Para fazer as duas colunas ficarem alinhadas de maneira mais consistente */
+    .tempo > .bloco-tempo:nth-child(odd) {
+        margin-right: 10%; /* Adiciona um pequeno espaçamento entre as colunas */
+    }
+    .home svg {
+        bottom: -3px; /* Distância do final da seção */
+    }
+
+    .wrapper {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    .wrapper .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper .row .programacao-item {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .wrapper .center-line {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+    }
+
+    .row-1 .programacao-item .icon,
+    .row-2 .programacao-item .icon {
+        display: none;
+    }
+    
+}
+
+@media (max-width: 768px){
+
+    .iframe-container {
+        padding-bottom: 75%; /* Ajuste para 4:3 se necessário */
+    }
+
+    .series-conteudo {
+        margin: 0 2rem; /* Reduz o margin para dispositivos móveis */
+    }
+
+    .trajes-conteudo{
+        margin: 0 2rem;
+    }
+
+    .home{
+        flex-direction: column;
+    }
+    .home h1{
+        text-align: center;
+    }
+    .home-conteudo h1{
+        font-size: 5rem;
+    }
+
+    /* Dividir os blocos em duas colunas em telas pequenas */
+    .bloco-tempo {
+        width: 50%; /* Cada bloco ocupa metade da largura disponível */
+        max-width: 200px; /* Limite a largura máxima para que não fiquem grandes demais */
+    }
+
+    /* Para fazer as duas colunas ficarem alinhadas de maneira mais consistente */
+    .tempo > .bloco-tempo:nth-child(odd) {
+        margin-right: 0%; /* Adiciona um pequeno espaçamento entre as colunas */
+    }
+    .contador div{
+        display: flex;
+        justify-content: center;         
+        align-items: center;  
+        flex-wrap: wrap;           
+    }
+
+    .bloco-tempo div{
+        margin-left: 10px;
+    }
+    
+}
+
+@media (max-width: 658px){
+    .btn-presentes {
+        flex-direction: column; /* Empilha os itens (texto) um embaixo do outro */
+        text-align: center; /* Centraliza o texto no botão */
+        padding: 15px 20px; /* Ajusta o padding para telas pequenas */
+    }
+
+    .btn-presentes span {
+        margin: 5px 0; /* Adiciona um espaçamento entre as palavras quando empilhadas */
+    }
+    .apresentacao, .sobre{
+        flex-wrap: wrap;
+    }
+
+    .apresentacao-img, .sobre-img{
+        justify-content: center;
+    }
+    .apresentacao-img img, .sobre-img img{
+        width: 70vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .bloco-tempo {
+        padding: 15px 20px; /* Reduz o padding para telas menores */
+    }
+
+    .bloco-tempo span {
+        font-size: 4rem; /* Reduz o tamanho da fonte para telas pequenas */
+    }
+
+    .bloco-tempo div {
+        font-size: 1rem; /* Ajusta o tamanho da fonte do texto inferior */
+    }
+
+    .wrapper .row .programacao-item {
+        padding: 15px;
+    }
+
+    .row .programacao-item .details .title {
+        font-size: 18px;
+    }
+
+    .row .programacao-item .details .hours {
+        font-size: 16px;
+    }
+
+    .row .programacao-item p {
+        font-size: 14px;
+    }
+
+    .center-line .scroll-icon {
+        bottom: 10px;
+        font-size: 20px;
+    }
+}
